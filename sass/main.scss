@@ -4,7 +4,7 @@
 
 
 html, body {
-    color: $color-font;
+    color: $color-darkest;
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     font-weight: 300;
@@ -13,7 +13,12 @@ html, body {
     width: 100%;
 }
 
-h2, h3, ol {
+a {
+    color: $color-darkest;
+    text-decoration: none;
+}
+
+h2, h3, ol, ul {
     margin: 0;
     padding: 0;
 }
@@ -32,7 +37,7 @@ header {
 
 .intro {
     text-align: center;
-    background-color: $color-scnd-bkgd;
+    background-color: $color-light-bkgd;
     padding-bottom: 50px;
         &__location {
             background-color: rgb(234,234,234);
@@ -54,7 +59,7 @@ header {
             font-size: 1.1rem;
         }
         &__explore {
-            color: #fff;
+            color: $color-lightest;
             font-size: 0.9rem;
             font-weight: 600;
             padding: 16px 20px;
@@ -69,7 +74,7 @@ header {
 }
 
 .howto {
-    padding: 50px 15px;
+    padding: 50px 20px;
         &__title {
             font-size: 1.5rem;
         }
@@ -79,10 +84,10 @@ header {
             & li {
                 counter-increment: item;
                 font-weight: 500;
-                background: $color-scnd-bkgd;
+                background: $color-light-bkgd;
                 box-shadow: 0 5px 10px #ccc;
                 border-radius: 25px;
-                margin: 12px 5px 12px 10px;
+                margin: 12px 0 12px 5px;
                 padding: 30px 30px;
                     & span {
                         font-size: 1.2rem;
@@ -92,7 +97,7 @@ header {
             }
             & li::before {
                 content: counter(item) "";
-                color: #fff;
+                color: $color-lightest;
                 background: $color-primary;
                 font-size: 0.9rem;
                 margin: 0 20px 0 -36px;
@@ -103,12 +108,77 @@ header {
 }
 
 .restaurants {
-    padding: 50px 15px;
-    background-color: $color-scnd-bkgd;
-        &__card {
-            background-color: #fff;
-            border-radius: 20px;
-            box-shadow: 0 5px 10px #ccc;
+    padding: 50px 20px;
+    background-color: $color-light-bkgd;
+}
+
+.card {
+    background-color: $color-lightest;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px #ddd;
+    margin: 12px 0;
+        &__illu {
             width: 100%;
+            height: 174px;
+            border-radius: 20px 20px 0 0;
+            object-fit: cover;
+            object-position: 50% 50%;
+        }
+        & div {
+            padding: 15px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+        &__name {
+            flex: 0 1 auto;
+            font-weight: 700;
+        }
+        &__place {
+            order: 3;
+            flex: 1 1 100%;
+            font-size: 1.1rem;
+            margin: 0;
+            padding: 5px;
+        }
+        &__fav {
+            order: 2;
+            flex: 0 1 auto;
+            font-size: 1.4rem;
+            font-weight: 100;
+        }
+        &__new {
+            background: $color-tertiary;
+            border-radius: 2px;
+            padding: 5px 10px;
+            width: min-content;
+            font-weight: 700;
+            position: relative;
+            top: -180px;
+            left: 70%;
+        }
+}
+
+.more {
+    color: $color-lightest;
+    background-color: $color-dark-bkgd;
+    padding: 5px 20px 40px 20px;
+        &__logo {
+            font-family: 'Shrikhand';
+            font-size: 1.1rem;
+        }
+}
+
+.listing {
+    list-style-type: none;
+        & a {
+            color: $color-lightest;
+            font-size: 0.95rem;
+        }
+        &__links {
+            line-height: 1.5;
+                &--top {
+                    font-weight: 500;
+                }
         }
 }
