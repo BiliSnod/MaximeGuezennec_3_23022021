@@ -21,7 +21,6 @@ a {
 h2, h3, ol, ul {
     margin: 0;
     padding: 0;
-    background-color: #ccc;
 }
 
 header {
@@ -117,6 +116,7 @@ header {
     background-color: $color-lightest;
     border-radius: 20px;
     box-shadow: 0 5px 10px #ddd;
+    position: relative;
     margin: 12px 0;
         &__illu {
             width: 100%;
@@ -127,27 +127,21 @@ header {
         }
         & div {
             padding: 15px;
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-between;
         }
         &__name {
-            flex: 0 1 auto;
             font-weight: 700;
         }
         &__place {
-            order: 3;
-            flex: 1 1 100%;
             font-size: 1.1rem;
-            margin: 0;
-            padding: 5px;
+            margin: 5px 0;
         }
         &__fav {
-            order: 2;
-            flex: 0 1 auto;
             font-size: 1.4rem;
-            font-weight: 100;
-        }
+            position: absolute;
+            top: 190px;
+            right: 15px;
+            z-index: 2;
+        }/*
         &__new {
             background: $color-tertiary;
             border-radius: 2px;
@@ -157,7 +151,7 @@ header {
             position: relative;
             top: -180px;
             left: 70%;
-        }
+        }*/
 }
 
 .more {
