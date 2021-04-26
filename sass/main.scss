@@ -118,6 +118,20 @@ header {
     box-shadow: 0 5px 10px #ddd;
     position: relative;
     margin: 12px 0;
+        &::after {
+            content: "Nouveau";
+            // color: $color-tertiary argument darken()
+            background: $color-tertiary;
+            border-radius: 2px;
+            padding: 5px 10px;
+            width: min-content;
+            font-weight: 700;
+            position: absolute;
+            font-size: 0.9rem;
+            top: 15px;
+            right: 15px;
+            z-index: 2;
+        }
         &__illu {
             width: 100%;
             height: 174px;
@@ -140,18 +154,7 @@ header {
             position: absolute;
             top: 190px;
             right: 15px;
-            z-index: 2;
-        }/*
-        &__new {
-            background: $color-tertiary;
-            border-radius: 2px;
-            padding: 5px 10px;
-            width: min-content;
-            font-weight: 700;
-            position: relative;
-            top: -180px;
-            left: 70%;
-        }*/
+        }
 }
 
 .more {
