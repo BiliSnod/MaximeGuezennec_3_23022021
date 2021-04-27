@@ -1,7 +1,6 @@
 {
   "name": "ohmyfood",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "sass": "sass --watch sass/main.scss:elements/css/style.css",
@@ -12,5 +11,10 @@
     "url": "git+https://github.com/BiliSnod/MaximeGuezennec_3_23022021.git"
   },
   "author": "BiliSnod",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BiliSnod/MaximeGuezennec_3_23022021/issues"
+  },
+  "homepage": "https://github.com/BiliSnod/MaximeGuezennec_3_23022021#readme",
+  "description": ""
 }

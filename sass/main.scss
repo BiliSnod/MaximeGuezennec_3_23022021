@@ -3,6 +3,7 @@
 @import "./utils/variables";
 
 
+
 html, body {
     color: $color-darkest;
     font-family: 'Roboto', sans-serif;
@@ -91,8 +92,14 @@ header {
                 padding: 30px 30px;
                     & span {
                         font-size: 1.2rem;
-                        margin-right: 15px;
                         color: #666;
+                        width: 40px;
+                    }
+                    &:last-of-type {
+                            background: lighten($color-primary, 35%);
+                    }
+                    &:last-of-type span {
+                        color: $color-primary;
                     }
             }
             & li::before {
@@ -118,9 +125,9 @@ header {
     box-shadow: 0 5px 10px #ddd;
     position: relative;
     margin: 12px 0;
-        &::after {
+        &--new::after {
             content: "Nouveau";
-            // color: $color-tertiary argument darken()
+            color: darken($color-tertiary, 36%);
             background: $color-tertiary;
             border-radius: 2px;
             padding: 5px 10px;
@@ -141,19 +148,34 @@ header {
         }
         & div {
             padding: 15px;
-        }
-        &__name {
-            font-weight: 700;
-        }
-        &__place {
-            font-size: 1.1rem;
-            margin: 5px 0;
+                &__name {
+                    font-weight: 700;
+                }
+                &__place {
+                    font-size: 1.1rem;
+                    margin: 5px 0;
+                }
         }
         &__fav {
             font-size: 1.4rem;
             position: absolute;
             top: 190px;
             right: 15px;
+                &:hover span {
+                    visibility: hidden;
+                }
+                &::before {
+                    background: linear-gradient(to bottom, $color-primary, $color-secondary);
+                }
+                &:hover::before {
+                    position: absolute;
+                    font-family: "Font Awesome 5 Free";
+                    content: "\f004";
+                    font-weight: 900;
+                    background-clip: text; // search for a cleaner method ?
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
         }
 }
 
@@ -171,12 +193,17 @@ header {
     list-style-type: none;
         & a {
             color: $color-lightest;
-            font-size: 0.95rem;
+            font-size: 0.96rem;
         }
         &__links {
-            line-height: 1.5;
+            line-height: 1.6;
                 &--top {
                     font-weight: 500;
+                    line-height: 1.6;
+                    & span {
+                        font-size: 0.9rem;
+                        width: 30px;
+                    }
                 }
         }
 }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;600;700;900&display=swap");
 html, body {
@@ -91,8 +92,14 @@ header {
 }
 .howto__steps li span {
   font-size: 1.2rem;
-  margin-right: 15px;
   color: #666;
+  width: 40px;
+}
+.howto__steps li:last-of-type {
+  background: #f2eafb;
+}
+.howto__steps li:last-of-type span {
+  color: #9356dc;
 }
 .howto__steps li::before {
   content: counter(item) "";
@@ -116,8 +123,9 @@ header {
   position: relative;
   margin: 12px 0;
 }
-.card::after {
+.card--new::after {
   content: "Nouveau";
+  color: #2b987d;
   background: #99e2d0;
   border-radius: 2px;
   padding: 5px 10px;
@@ -139,10 +147,10 @@ header {
 .card div {
   padding: 15px;
 }
-.card__name {
+.card div__name {
   font-weight: 700;
 }
-.card__place {
+.card div__place {
   font-size: 1.1rem;
   margin: 5px 0;
 }
@@ -151,6 +159,21 @@ header {
   position: absolute;
   top: 190px;
   right: 15px;
+}
+.card__fav:hover span {
+  visibility: hidden;
+}
+.card__fav::before {
+  background: linear-gradient(to bottom, #9356dc, #ff79da);
+}
+.card__fav:hover::before {
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  content: "";
+  font-weight: 900;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .more {
@@ -168,13 +191,18 @@ header {
 }
 .listing a {
   color: #fff;
-  font-size: 0.95rem;
+  font-size: 0.96rem;
 }
 .listing__links {
-  line-height: 1.5;
+  line-height: 1.6;
 }
 .listing__links--top {
   font-weight: 500;
+  line-height: 1.6;
+}
+.listing__links--top span {
+  font-size: 0.9rem;
+  width: 30px;
 }
 
 /*# sourceMappingURL=style.css.map */
