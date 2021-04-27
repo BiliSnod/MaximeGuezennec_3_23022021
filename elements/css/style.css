@@ -1,13 +1,12 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;600;700;900&display=swap");
-html, body {
-  color: #000;
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  font-weight: 300;
+body, h2, h3, ol, ul {
   margin: 0;
   padding: 0;
+}
+
+body {
   width: 100%;
 }
 
@@ -15,10 +14,25 @@ a {
   color: #000;
   text-decoration: none;
 }
+a:hover:focus {
+  text-decoration: underline;
+}
 
-h2, h3, ol, ul {
-  margin: 0;
-  padding: 0;
+body {
+  color: #000;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.header__logo {
+  font-family: "Shrikhand", serif;
+  font-size: 2rem;
+}
+
+.more__logo {
+  font-family: "Shrikhand", serif;
+  font-size: 1.1rem;
 }
 
 header {
@@ -28,8 +42,6 @@ header {
 .header__logo {
   margin: 0;
   padding: 5px 10px;
-  font-family: "Shrikhand";
-  font-size: 2rem;
   text-align: center;
 }
 
@@ -147,10 +159,10 @@ header {
 .card div {
   padding: 15px;
 }
-.card div__name {
+.card__name {
   font-weight: 700;
 }
-.card div__place {
+.card__place {
   font-size: 1.1rem;
   margin: 5px 0;
 }
@@ -180,10 +192,6 @@ header {
   color: #fff;
   background-color: #353535;
   padding: 5px 20px 40px 20px;
-}
-.more__logo {
-  font-family: "Shrikhand";
-  font-size: 1.1rem;
 }
 
 .listing {

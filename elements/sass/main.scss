@@ -1,28 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;600;700;900&display=swap');
-@import "./utils/variables";
+
+@import "./abstracts/variables";
+@import "./abstracts/mixins";
+
+@import "./base/reset";
+@import "./base/default";
+@import "./base/typography";
+
+@import "./components/buttons";
+@import "./components/cards";
+
+@import "./layout/header";
+@import "./layout/sections";
+@import "./layout/footer";
 
 
 
-html, body {
-    color: $color-darkest;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    font-weight: 300;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
 
-a {
-    color: $color-darkest;
-    text-decoration: none;
-}
 
-h2, h3, ol, ul {
-    margin: 0;
-    padding: 0;
-}
+
+
 
 header {
     margin-top: 10px;
@@ -31,8 +27,6 @@ header {
 .header__logo {
     margin: 0;
     padding: 5px 10px;
-    font-family: 'Shrikhand';
-    font-size: 2rem;
     text-align: center;
 }
 
@@ -148,13 +142,13 @@ header {
         }
         & div {
             padding: 15px;
-                &__name {
-                    font-weight: 700;
-                }
-                &__place {
-                    font-size: 1.1rem;
-                    margin: 5px 0;
-                }
+        }
+        &__name {
+            font-weight: 700;
+        }
+        &__place {
+            font-size: 1.1rem;
+            margin: 5px 0;
         }
         &__fav {
             font-size: 1.4rem;
@@ -183,10 +177,6 @@ header {
     color: $color-lightest;
     background-color: $color-dark-bkgd;
     padding: 5px 20px 40px 20px;
-        &__logo {
-            font-family: 'Shrikhand';
-            font-size: 1.1rem;
-        }
 }
 
 .listing {
