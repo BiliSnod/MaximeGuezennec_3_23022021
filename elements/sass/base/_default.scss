@@ -5,7 +5,4 @@ body {
 a {
     color: $color-darkest;
     text-decoration: none;
-     &:hover:focus {
-        text-decoration: underline;
-     }
 }

@@ -1,0 +1,13 @@
+.explore {
+    color: $color-lightest;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 16px 20px;
+    background: linear-gradient($color-secondary, $color-primary);
+    border: 0;
+    border-radius: 25px;
+    box-shadow: 0 5px 10px #ccc;
+        &:hover, &:focus {
+            background: $color-primary;
+        }
+}
