@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch sass/main.scss:elements/css/style.css",
+    "sass": "sass --watch elements/sass/main.scss:elements/css/style.css",
     "prefix": "postcss elements/css/style.css"
   },
   "repository": {
