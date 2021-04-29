@@ -63,15 +63,22 @@ body {
   font-size: 2rem;
 }
 
+.courses__place {
+  font-family: "Shrikhand", serif;
+  font-size: 1.7rem;
+  font-weight: 300;
+}
+
 .more__logo {
   font-family: "Shrikhand", serif;
   font-size: 1.1rem;
 }
 
-.explore {
+.action {
   color: #fff;
   font-size: 0.9rem;
   font-weight: 600;
+  cursor: pointer;
   padding: 16px 20px;
   position: relative;
   z-index: 1;
@@ -80,11 +87,11 @@ body {
   border-radius: 25px;
   box-shadow: 0 5px 10px #cccccc;
 }
-.explore:hover::after, .explore:focus::after {
+.action:hover::after, .action:focus::after {
   opacity: 1;
   box-shadow: 0 2px 5px #999999;
 }
-.explore::after {
+.action::after {
   content: "";
   position: absolute;
   top: 0;
@@ -160,6 +167,7 @@ body {
 
 .top {
   margin-top: 10px;
+  display: flex;
 }
 .top__spinner {
   margin-top: -10px;
@@ -183,6 +191,13 @@ body {
   margin: 0;
   padding: 5px 10px;
   text-align: center;
+  flex-grow: 1;
+}
+.top__home {
+  padding: 15px 0 0 25px;
+  width: 100%;
+  font-size: 1.2rem;
+  flex-shrink: 1;
 }
 
 .intro {
@@ -253,6 +268,96 @@ body {
 .restaurants {
   padding: 50px 20px;
   background-color: #f6f6f6;
+}
+
+/* Menu pages */
+.decor {
+  position: relative;
+  z-index: -1;
+}
+.decor img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.courses {
+  margin-top: -50px;
+  padding: 30px 12px;
+  background: #f6f6f6;
+  border-radius: 36px 36px 0 0;
+  z-index: 1;
+}
+.courses__place {
+  margin: 0;
+  padding: 0 5px;
+}
+.courses__dishes {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  border-bottom: 3px solid #99e2d0;
+  margin-top: 30px;
+  padding: 5px;
+}
+
+.dish {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #cccccc;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 15px 0;
+  height: 60px;
+  width: 100%;
+}
+.dish__desc {
+  padding: 8px;
+}
+.dish__desc p {
+  margin: 0;
+}
+.dish__hide {
+  display: none;
+}
+.dish__price {
+  text-align: center;
+  transition: width 640ms ease-in;
+  font-weight: 900;
+}
+.dish__check {
+  background-color: #99E2D0;
+  border-radius: 0 20px 20px 0;
+  height: 60px;
+  overflow: hidden;
+  text-align: center;
+  transition: width 420ms ease-in;
+  width: 0;
+  flex-grow: 0;
+}
+.dish__check span {
+  color: #fff;
+  font-size: 1.4rem;
+}
+.dish:hover .dish__hide {
+  display: initial;
+  background: #fff;
+}
+.dish:hover .dish__price {
+  background: #fff;
+}
+.dish:hover .dish__check {
+  width: 80px;
+}
+.dish:hover .dish__check span {
+  transform: rotate(1turn);
+  transition: transform 500ms;
+}
+
+.order {
+  background: #f6f6f6;
+  text-align: center;
+  padding-bottom: 80px;
 }
 
 .more {

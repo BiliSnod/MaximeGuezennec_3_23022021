@@ -31,39 +31,131 @@
         &__steps {
             counter-reset: item;
             list-style-type: none;
-            & li {
-                counter-increment: item;
-                font-weight: 500;
-                background: $color-light-bkgd;
-                box-shadow: 0 5px 10px darken($color-light-bkgd, 10%);
-                border-radius: 25px;
-                margin: 12px 0 12px 5px;
-                padding: 30px 30px;
-                    & span {
-                        color: lighten($color-dark-bkgd, 20%);
-                        font-size: 1.2rem;
-                        width: 40px;
-                    }
-                    &:last-of-type {
-                        background: lighten($color-primary, 35%);
-                            & span {
-                                color: $color-primary;
-                            }
-                    }
-            }
-            & li::before {
-                content: counter(item) "";
-                color: $color-lightest;
-                font-size: 0.9rem;
-                background: $color-primary;
-                border-radius: 50px;
-                margin: 0 20px 0 -36px;
-                padding: 3px 8px;
-            }
+                & li {
+                    counter-increment: item;
+                    font-weight: 500;
+                    background: $color-light-bkgd;
+                    box-shadow: 0 5px 10px darken($color-light-bkgd, 10%);
+                    border-radius: 25px;
+                    margin: 12px 0 12px 5px;
+                    padding: 30px 30px;
+                        & span {
+                            color: lighten($color-dark-bkgd, 20%);
+                            font-size: 1.2rem;
+                            width: 40px;
+                        }
+                        &:last-of-type {
+                            background: lighten($color-primary, 35%);
+                                & span {
+                                    color: $color-primary;
+                                }
+                        }
+                }
+                & li::before {
+                    content: counter(item) "";
+                    color: $color-lightest;
+                    font-size: 0.9rem;
+                    background: $color-primary;
+                    border-radius: 50px;
+                    margin: 0 20px 0 -36px;
+                    padding: 3px 8px;
+                }
         }
 }
 
 .restaurants {
     padding: 50px 20px;
     background-color: $color-light-bkgd;
+}
+
+
+/* Menu pages */
+
+.decor {
+    position: relative;
+    z-index:-1;
+        & img {
+            object-fit: cover;
+            width: 100%;
+        }
+}
+
+.courses {
+    margin-top: -50px;
+    padding: 30px 12px;
+    background: $color-light-bkgd;
+    border-radius: 36px 36px 0 0;
+    z-index: 1;
+        &__place {
+            margin: 0;
+            padding: 0 5px;
+        }
+        &__dishes {
+            font-size: 1rem;
+            text-transform:uppercase;
+            font-weight: 300;
+            border-bottom: 3px solid $color-tertiary;
+            margin-top: 30px;
+            padding: 5px;
+        }
+}
+
+.dish {
+    background: $color-lightest;
+    border-radius: 20px;
+    box-shadow: 0 0 10px lighten($color-darkest, 80%);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 15px 0;
+    height: 60px;
+    width: 100%;
+        &__desc {
+            padding: 8px;
+            & p {
+                margin: 0;
+            }
+        }
+        &__hide {
+            display: none;
+        }
+        &__price {  
+            text-align: center;
+            transition: width 640ms ease-in;
+            font-weight: 900;
+        }
+        &__check {
+            background-color:#99E2D0;
+            border-radius: 0 20px 20px 0;
+            height: 60px;
+            overflow: hidden;
+            text-align: center;
+            transition: width 420ms ease-in;
+            width: 0;
+            flex-grow: 0;
+                & span {
+                    color: $color-lightest;
+                    font-size: 1.4rem;
+                }
+        }
+        &:hover .dish__hide {
+            display: initial;
+            background: $color-lightest;
+        }
+        &:hover .dish__price {
+            background: $color-lightest;
+        }
+        &:hover .dish__check {
+            width: 80px;
+                & span {
+                    transform: rotate(1turn);
+                    transition: transform 500ms;
+                }
+        }
+}
+
+.order {
+    background: $color-light-bkgd;
+    text-align: center;
+    padding-bottom: 80px;
 }
