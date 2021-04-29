@@ -6,6 +6,37 @@ body, h2, h3, ol, ul {
   padding: 0;
 }
 
+@keyframes spin-move {
+  0% {
+    transform: translateY(-1vh);
+    animation-timing-function: ease-out;
+    background-color: #782cd3;
+    height: 98vh;
+    width: 100%;
+  }
+  20% {
+    background-color: #9356dc;
+  }
+  40%, 80% {
+    transform: translateY(0);
+    height: 100vh;
+    width: 100%;
+  }
+  100% {
+    transform: translateY(-200vh);
+    background-color: #c056dc;
+    height: 0vh;
+    width: 100%;
+  }
+}
+@keyframes spin-effect {
+  from {
+    transform: rotate(5deg);
+  }
+  to {
+    transform: rotate(-5deg);
+  }
+}
 body {
   width: 100%;
 }
@@ -22,7 +53,12 @@ body {
   font-weight: 300;
 }
 
-.header__logo {
+.top__spinner {
+  font-family: "Shrikhand", serif;
+  font-size: 3rem;
+}
+
+.top__logo {
   font-family: "Shrikhand", serif;
   font-size: 2rem;
 }
@@ -65,7 +101,7 @@ body {
   font-size: 0.9rem;
   top: 15px;
   right: 15px;
-  z-index: 2;
+  z-index: 1;
 }
 .card__illu {
   width: 100%;
@@ -106,11 +142,28 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-header {
+.top {
   margin-top: 10px;
 }
-
-.header__logo {
+.top__spinner {
+  margin-top: -10px;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  z-index: 2;
+  background-color: #782cd3;
+  height: 90vh;
+  width: 100%;
+  animation: spin-move 1800ms ease-in-out 0s both;
+}
+.top__spinner span {
+  margin-top: 36vh;
+  display: inline-block;
+  animation: spin-effect 100ms ease-in-out 1000ms;
+  animation-iteration-count: 3;
+  animation-direction: alternate;
+}
+.top__logo {
   margin: 0;
   padding: 5px 10px;
   text-align: center;
@@ -126,8 +179,8 @@ header {
   box-shadow: inset 0 2px 4px #c3c3c3;
   margin: 0 0 0 -30px;
   padding: 15px 0;
-  font-weight: 500;
   font-size: 0.98rem;
+  font-weight: 500;
 }
 .intro__location .fas {
   padding-right: 10px;
@@ -161,8 +214,8 @@ header {
   padding: 30px 30px;
 }
 .howto__steps li span {
-  font-size: 1.2rem;
   color: #686868;
+  font-size: 1.2rem;
   width: 40px;
 }
 .howto__steps li:last-of-type {
@@ -174,10 +227,10 @@ header {
 .howto__steps li::before {
   content: counter(item) "";
   color: #fff;
-  background: #9356dc;
   font-size: 0.9rem;
-  margin: 0 20px 0 -36px;
+  background: #9356dc;
   border-radius: 50px;
+  margin: 0 20px 0 -36px;
   padding: 3px 8px;
 }
 

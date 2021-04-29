@@ -7,11 +7,11 @@
             box-shadow: inset 0 2px 4px darken($color-light-bkgd, 20%);
             margin: 0 0 0 -30px;
             padding: 15px 0;
-            font-weight: 500;
             font-size: 0.98rem;
-            & .fas {
-                padding-right: 10px;
-            }
+            font-weight: 500;
+                & .fas {
+                    padding-right: 10px;
+                }
         }
         &__headline {
             margin: 40px 50px 0 50px;
@@ -40,24 +40,24 @@
                 margin: 12px 0 12px 5px;
                 padding: 30px 30px;
                     & span {
-                        font-size: 1.2rem;
                         color: lighten($color-dark-bkgd, 20%);
+                        font-size: 1.2rem;
                         width: 40px;
                     }
                     &:last-of-type {
-                            background: lighten($color-primary, 35%);
-                    }
-                    &:last-of-type span {
-                        color: $color-primary;
+                        background: lighten($color-primary, 35%);
+                            & span {
+                                color: $color-primary;
+                            }
                     }
             }
             & li::before {
                 content: counter(item) "";
                 color: $color-lightest;
-                background: $color-primary;
                 font-size: 0.9rem;
-                margin: 0 20px 0 -36px;
+                background: $color-primary;
                 border-radius: 50px;
+                margin: 0 20px 0 -36px;
                 padding: 3px 8px;
             }
         }
