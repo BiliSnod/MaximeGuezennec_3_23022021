@@ -38,19 +38,19 @@
         &__fav {
             font-size: 1.4rem;
             position: absolute;
+            cursor: pointer;
             top: 190px;
             right: 15px;
-                &:hover span {
-                    visibility: hidden;
-                }
-                &::before {
-                    background: linear-gradient(to bottom, $color-primary, $color-secondary);
+                &:hover span, &:focus span {
+                    transition: opacity 100ms ease-in;
+                    opacity: 0;
                 }
                 &:hover::before {
                     position: absolute;
                     font-family: "Font Awesome 5 Free";
                     content: "\f004";
                     font-weight: 900;
+                    background: linear-gradient(to bottom, $color-primary, $color-secondary);
                     background-clip: text; // search for a cleaner method ?
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;

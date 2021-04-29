@@ -73,13 +73,29 @@ body {
   font-size: 0.9rem;
   font-weight: 600;
   padding: 16px 20px;
+  position: relative;
+  z-index: 1;
   background: linear-gradient(#ff79da, #9356dc);
   border: 0;
   border-radius: 25px;
-  box-shadow: 0 5px 10px #ccc;
+  box-shadow: 0 5px 10px #cccccc;
 }
-.explore:hover, .explore:focus {
-  background: #9356dc;
+.explore:hover::after, .explore:focus::after {
+  opacity: 1;
+  box-shadow: 0 2px 5px #999999;
+}
+.explore::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  background: linear-gradient(#99e2d0, #9356dc);
+  border-radius: 25px;
+  transition: all 200ms ease-in;
 }
 
 .card {
@@ -123,20 +139,20 @@ body {
 .card__fav {
   font-size: 1.4rem;
   position: absolute;
+  cursor: pointer;
   top: 190px;
   right: 15px;
 }
-.card__fav:hover span {
-  visibility: hidden;
-}
-.card__fav::before {
-  background: linear-gradient(to bottom, #9356dc, #ff79da);
+.card__fav:hover span, .card__fav:focus span {
+  transition: opacity 100ms ease-in;
+  opacity: 0;
 }
 .card__fav:hover::before {
   position: absolute;
   font-family: "Font Awesome 5 Free";
   content: "";
   font-weight: 900;
+  background: linear-gradient(to bottom, #9356dc, #ff79da);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -251,16 +267,13 @@ body {
 .listing a {
   color: #fff;
   font-size: 0.96rem;
+  line-height: 1.7;
 }
 .listing a:hover {
   text-decoration: underline dotted;
 }
-.listing__links {
-  line-height: 1.6;
-}
 .listing__links--top {
   font-weight: 500;
-  line-height: 1.6;
 }
 .listing__links--top span {
   font-size: 0.9rem;

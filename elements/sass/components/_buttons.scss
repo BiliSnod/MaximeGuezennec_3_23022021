@@ -3,11 +3,22 @@
     font-size: 0.9rem;
     font-weight: 600;
     padding: 16px 20px;
+    position: relative;
+    z-index: 1;
     background: linear-gradient($color-secondary, $color-primary);
     border: 0;
     border-radius: 25px;
-    box-shadow: 0 5px 10px #ccc;
+    box-shadow: 0 5px 10px lighten($color-darkest, 80%);
         &:hover, &:focus {
-            background: $color-primary;
+            &::after {
+                opacity: 1;
+                box-shadow: 0 2px 5px lighten($color-darkest, 60%);
+            }
+        }
+        &::after {
+            @include pseudo-element;
+            background: linear-gradient($color-tertiary, $color-primary);
+            border-radius: 25px;
+            transition: all 200ms ease-in;
         }
 }

@@ -9,15 +9,14 @@
         & a {
             color: $color-lightest;
             font-size: 0.96rem;
+            line-height: 1.7;
                 &:hover {
                 text-decoration: underline dotted;
                 }
         }
         &__links {
-            line-height: 1.6;
                 &--top {
                     font-weight: 500;
-                    line-height: 1.6;
                         & span {
                             font-size: 0.9rem;
                             width: 30px;
