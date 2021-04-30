@@ -102,7 +102,7 @@ body {
   opacity: 0;
   background: linear-gradient(#99e2d0, #9356dc);
   border-radius: 25px;
-  transition: all 200ms ease-in;
+  transition: all 100ms ease-in;
 }
 
 .card {
@@ -302,54 +302,81 @@ body {
 
 .dish {
   background: #fff;
-  border-radius: 20px;
+  border-radius: 15px;
   box-shadow: 0 0 10px #cccccc;
+  position: relative;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
   margin: 15px 0;
   height: 60px;
   width: 100%;
 }
 .dish__desc {
   padding: 8px;
+  line-height: 1.375rem;
+}
+.dish__desc h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 .dish__desc p {
+  font-size: 0.9rem;
   margin: 0;
 }
-.dish__hide {
-  display: none;
+.dish__slide {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-end;
+}
+.dish__slide::before {
+  content: "";
+  opacity: 0;
 }
 .dish__price {
-  text-align: center;
   transition: width 640ms ease-in;
   font-weight: 900;
+  width: 80px;
+  margin: 0;
+  background: #fff;
+  border-radius: 0 15px 15px 0;
+  padding-bottom: 10px;
 }
 .dish__check {
   background-color: #99E2D0;
-  border-radius: 0 20px 20px 0;
+  border-radius: 0 15px 15px 0;
   height: 60px;
   overflow: hidden;
-  text-align: center;
   transition: width 420ms ease-in;
   width: 0;
-  flex-grow: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .dish__check span {
   color: #fff;
   font-size: 1.4rem;
 }
-.dish:hover .dish__hide {
-  display: initial;
-  background: #fff;
+.dish:hover .dish__slide {
+  background: linear-gradient(0.25turn, transparent, #fff 2%, #fff);
+  border-radius: 0 15px 15px 0;
 }
-.dish:hover .dish__price {
-  background: #fff;
+.dish:hover .dish__slide::before {
+  content: "...";
+  font-weight: 400;
+  width: 30px;
+  opacity: 1;
+  transition: opacity 1000ms;
+  padding-bottom: 10px;
 }
 .dish:hover .dish__check {
   width: 80px;
 }
 .dish:hover .dish__check span {
+  cursor: pointer;
   transform: rotate(1turn);
   transition: transform 500ms;
 }

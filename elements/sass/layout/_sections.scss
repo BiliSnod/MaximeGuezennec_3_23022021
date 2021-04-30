@@ -102,52 +102,79 @@
 
 .dish {
     background: $color-lightest;
-    border-radius: 20px;
+    border-radius: 15px;
     box-shadow: 0 0 10px lighten($color-darkest, 80%);
+    position: relative;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
     margin: 15px 0;
     height: 60px;
     width: 100%;
         &__desc {
             padding: 8px;
+            line-height: 1.375rem;
+            & h3 {
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
             & p {
+                font-size: 0.9rem;
                 margin: 0;
             }
         }
-        &__hide {
-            display: none;
+        &__slide {
+            text-align: center;
+            position: absolute;
+            top:0;
+            right: 0;
+            display: flex;
+            flex-flow: row wrap;
+            align-items: flex-end;
+                &::before {
+                    content:"";
+                    opacity: 0;
+            }
         }
         &__price {  
-            text-align: center;
             transition: width 640ms ease-in;
             font-weight: 900;
+            width: 80px;
+            margin: 0;
+            background: $color-lightest;
+            border-radius: 0 15px 15px 0;
+            padding-bottom: 10px;
         }
         &__check {
             background-color:#99E2D0;
-            border-radius: 0 20px 20px 0;
+            border-radius: 0 15px 15px 0;
             height: 60px;
             overflow: hidden;
-            text-align: center;
             transition: width 420ms ease-in;
             width: 0;
-            flex-grow: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
                 & span {
                     color: $color-lightest;
                     font-size: 1.4rem;
                 }
         }
-        &:hover .dish__hide {
-            display: initial;
-            background: $color-lightest;
+        &:hover .dish__slide {
+            background: linear-gradient(0.25turn, transparent, $color-lightest 2%, $color-lightest);
+            border-radius: 0 15px 15px 0;
         }
-        &:hover .dish__price {
-            background: $color-lightest;
+        &:hover .dish__slide::before {
+            content: "...";
+            font-weight: 400;
+            width: 30px;
+            opacity: 1;
+            transition: opacity 1000ms;
+            padding-bottom: 10px;
         }
         &:hover .dish__check {
             width: 80px;
                 & span {
+                    cursor: pointer;
                     transform: rotate(1turn);
                     transition: transform 500ms;
                 }

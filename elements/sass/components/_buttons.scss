@@ -20,6 +20,6 @@
             @include pseudo-element;
             background: linear-gradient($color-tertiary, $color-primary);
             border-radius: 25px;
-            transition: all 200ms ease-in;
+            transition: all 100ms ease-in;
         }
 }
