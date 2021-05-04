@@ -91,12 +91,21 @@
             padding: 0 5px;
         }
         &__dishes {
+            width: 80px;
+            position: relative;
             font-size: 1rem;
-            text-transform:uppercase;
+            text-transform: uppercase;
             font-weight: 300;
-            border-bottom: 3px solid $color-tertiary;
             margin-top: 30px;
-            padding: 5px;
+            padding: 8px 5px;
+                &::after {
+                    position: absolute;
+                    bottom: 0;
+                    left: 5px;
+                    content: "";
+                    border-bottom: 3px solid $color-tertiary;
+                    width: 40px;
+                }
         }
 }
 
@@ -168,7 +177,7 @@
             font-weight: 400;
             width: 30px;
             opacity: 1;
-            transition: opacity 1000ms;
+            transition: opacity 1000ms ease-in-out;
             padding-bottom: 10px;
         }
         &:hover .dish__check {
