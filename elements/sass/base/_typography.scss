@@ -16,6 +16,12 @@ body {
 .top__logo {
     font-family: 'Shrikhand', serif;
     font-size: 2rem;
+    @include tablet-type {
+        font-size: 3rem;
+    }
+    @include desktop-type {
+        font-size: 4rem;
+    }
 }
 
 .courses__place {
@@ -27,4 +33,10 @@ body {
 .more__logo {
     font-family: 'Shrikhand', serif;
     font-size: 1.1rem;
+    @include tablet-type {
+        font-size: 2rem;
+    }
+    @include desktop-type {
+        font-size: 3rem;
+    }
 }

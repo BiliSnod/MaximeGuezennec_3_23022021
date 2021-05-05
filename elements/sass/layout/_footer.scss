@@ -2,10 +2,19 @@
     color: $color-lightest;
     background-color: $color-dark-bkgd;
     padding: 5px 20px 40px 20px;
+    @include tablet-type {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .listing {
     list-style-type: none;
+    @include tablet-type {
+        padding: 50px 0 0 100px;
+    }
         & a {
             color: $color-lightest;
             font-size: 0.96rem;

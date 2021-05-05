@@ -1,27 +1,30 @@
 .card {
     background-color: $color-lightest;
-    border-radius: 20px;
+    border-radius: map-get($radius-cards, outer);
     box-shadow: 0 5px 10px #ddd;
     position: relative;
     margin: 12px 0;
-        &--new::after {
+    @include tablet-type {
+        min-width: 520px;
+        margin: 20px;
+    }
+        &--new::after { // label for new restaurants
             content: "Nouveau";
             color: darken($color-tertiary, 36%);
             background: $color-tertiary;
-            border-radius: 2px;
+            border-radius: map-get($radius-cards, element);
             padding: 5px 10px;
-            width: min-content;
+            width: 58px;
             font-weight: 700;
-            position: absolute;
             font-size: 0.9rem;
+            position: absolute;
             top: 15px;
             right: 15px;
-            z-index: 1;
         }
         &__illu {
             width: 100%;
             height: 174px;
-            border-radius: 20px 20px 0 0;
+            border-radius: map-get($radius-cards, outer) map-get($radius-cards, outer) 0 0;
             object-fit: cover;
             object-position: 50% 50%;
         }
@@ -36,24 +39,17 @@
             margin: 5px 0;
         }
         &__fav {
+            cursor: pointer;
             font-size: 1.4rem;
             position: absolute;
-            cursor: pointer;
             top: 190px;
             right: 15px;
                 &:hover span, &:focus span {
                     transition: opacity 100ms ease-in;
-                    opacity: 0;
+                    opacity: 0;  // base icon disappear on state modification,
                 }
-                &:hover::before {
-                    position: absolute;
-                    font-family: "Font Awesome 5 Free";
-                    content: "\f004";
-                    font-weight: 900;
-                    background: linear-gradient(to bottom, $color-primary, $color-secondary);
-                    background-clip: text; // search for a cleaner method ?
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
+                &:hover::before, &:focus::before {
+                    @include fav-heart; // on state modification, the colored icon is displayed
                 }
         }
 }

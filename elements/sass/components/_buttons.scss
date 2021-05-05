@@ -1,25 +1,28 @@
-.action {
-    color: $color-lightest;
-    font-size: 0.9rem;
-    font-weight: 600;
+.button {
     cursor: pointer;
+    font-weight: 400;
     padding: 16px 20px;
-    position: relative;
-    z-index: 1;
     background: linear-gradient($color-secondary, $color-primary);
-    border: 0;
-    border-radius: 25px;
     box-shadow: 0 5px 10px lighten($color-darkest, 80%);
+    border: 0;
+    border-radius: $radius-buttons;
+    width: 180px;
+    margin: 0 auto;
+    position: relative; // necessary to place the pseudo-element in absolute position
+    z-index: 0; // necessary for the the pseudo-element to be visible on hover
+        & a {
+            color: $color-lightest;
+        }
         &:hover, &:focus {
             &::after {
-                opacity: 1;
+                opacity: 1; // make the pseudo-element visible on hover
                 box-shadow: 0 2px 5px lighten($color-darkest, 60%);
             }
         }
         &::after {
             @include pseudo-element;
             background: linear-gradient($color-tertiary, $color-primary);
-            border-radius: 25px;
             transition: all 100ms ease-in;
+            border-radius: $radius-buttons;
         }
 }

@@ -25,6 +25,10 @@
 
 .howto {
     padding: 50px 20px;
+    margin: 0 auto;
+    @include tablet-type {
+        max-width: 50%;
+    }
         &__title {
             font-size: 1.5rem;
         }
@@ -39,12 +43,15 @@
                     border-radius: 25px;
                     margin: 12px 0 12px 5px;
                     padding: 30px 30px;
+                    @include tablet-type {
+                        font-size: 1.25rem;
+                    }
                         & span {
                             color: lighten($color-dark-bkgd, 20%);
                             font-size: 1.2rem;
                             width: 40px;
                         }
-                        &:last-of-type {
+                        &:hover {
                             background: lighten($color-primary, 35%);
                                 & span {
                                     color: $color-primary;
@@ -66,6 +73,13 @@
 .restaurants {
     padding: 50px 20px;
     background-color: $color-light-bkgd;
+        &__wrapper {
+            @include tablet-type {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+        }
+    }
 }
 
 
@@ -84,12 +98,61 @@
     margin-top: -50px;
     padding: 30px 12px;
     background: $color-light-bkgd;
-    border-radius: 36px 36px 0 0;
+    border-radius: $radius-courses $radius-courses 0 0;
     z-index: 1;
         &__place {
-            margin: 0;
-            padding: 0 5px;
+            position: relative; // necessary to place "courses__fav"
+                > h1 {
+                font-size: 1.8rem;
+                font-weight: 400;
+                margin: 0;
+                padding: 0 5px;
+                }
         }
+        &__fav {
+            cursor: pointer;
+            font-size: 1.4rem;
+            position: absolute;
+            top: 8px;
+            right: 25px;
+                &:hover span, &:focus span {
+                    transition: opacity 100ms ease-in;
+                    opacity: 0; // base icon disappear on state modification
+                }
+                &:hover::before, &:focus::before {
+                    @include fav-heart; // on state modification, the colored icon is displayed
+                }
+
+        }
+        /* ----- Alternative solution ----- *
+        &__fav {
+            cursor: pointer;
+            font-size: 1.4rem;
+            position: absolute;
+            top: 8px;
+            right: 25px;
+                &:hover span {
+                    visibility: hidden;
+                }
+                &:hover, &:focus {
+                    &::before {
+                        opacity: 1; // make the pseudo-element visible on hover
+                    }
+                }
+                &::before {
+                    position: absolute;
+                    font-family: "Font Awesome 5 Free";
+                    content: "\f004";
+                    font-weight: 900;
+                    background: linear-gradient(to bottom, $color-primary, $color-secondary);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    transition: opacity 100ms ease-in;
+                    opacity: 0;
+                }
+        }
+        */
         &__dishes {
             width: 80px;
             position: relative;
@@ -111,23 +174,23 @@
 
 .dish {
     background: $color-lightest;
-    border-radius: 15px;
-    box-shadow: 0 0 10px lighten($color-darkest, 80%);
+    border-radius: $radius-dish;
+    box-shadow: 0 2px 12px lighten($color-darkest, 86%);
     position: relative;
     display: flex;
     flex-flow: row wrap;
     margin: 15px 0;
-    height: 60px;
+    height: 68px;
     width: 100%;
         &__desc {
-            padding: 8px;
-            line-height: 1.375rem;
+            padding: 10px;
+            line-height: 1.5rem;
             & h3 {
                 font-size: 1.1rem;
                 font-weight: 500;
             }
             & p {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
                 margin: 0;
             }
         }
@@ -146,17 +209,18 @@
         }
         &__price {  
             transition: width 640ms ease-in;
-            font-weight: 900;
+            font-size: 0.95rem;
+            font-weight: 700;
             width: 80px;
             margin: 0;
             background: $color-lightest;
-            border-radius: 0 15px 15px 0;
+            border-radius: 0 0 $radius-dish 0;
             padding-bottom: 10px;
         }
         &__check {
             background-color:#99E2D0;
-            border-radius: 0 15px 15px 0;
-            height: 60px;
+            border-radius: 0 $radius-dish $radius-dish 0;
+            height: 68px;
             overflow: hidden;
             transition: width 420ms ease-in;
             width: 0;
@@ -170,7 +234,7 @@
         }
         &:hover .dish__slide {
             background: linear-gradient(0.25turn, transparent, $color-lightest 2%, $color-lightest);
-            border-radius: 0 15px 15px 0;
+            border-radius: 0 $radius-dish $radius-dish 0;
         }
         &:hover .dish__slide::before {
             content: "...";

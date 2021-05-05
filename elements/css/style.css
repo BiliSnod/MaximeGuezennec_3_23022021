@@ -62,6 +62,16 @@ body {
   font-family: "Shrikhand", serif;
   font-size: 2rem;
 }
+@media screen and (min-width: 768px) {
+  .top__logo {
+    font-size: 3rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .top__logo {
+    font-size: 4rem;
+  }
+}
 
 .courses__place {
   font-family: "Shrikhand", serif;
@@ -73,25 +83,38 @@ body {
   font-family: "Shrikhand", serif;
   font-size: 1.1rem;
 }
+@media screen and (min-width: 768px) {
+  .more__logo {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .more__logo {
+    font-size: 3rem;
+  }
+}
 
-.action {
-  color: #fff;
-  font-size: 0.9rem;
-  font-weight: 600;
+.button {
   cursor: pointer;
+  font-weight: 400;
   padding: 16px 20px;
-  position: relative;
-  z-index: 1;
   background: linear-gradient(#ff79da, #9356dc);
+  box-shadow: 0 5px 10px #cccccc;
   border: 0;
   border-radius: 25px;
-  box-shadow: 0 5px 10px #cccccc;
+  width: 180px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 0;
 }
-.action:hover::after, .action:focus::after {
+.button a {
+  color: #fff;
+}
+.button:hover::after, .button:focus::after {
   opacity: 1;
   box-shadow: 0 2px 5px #999999;
 }
-.action::after {
+.button::after {
   content: "";
   position: absolute;
   top: 0;
@@ -101,8 +124,8 @@ body {
   z-index: -1;
   opacity: 0;
   background: linear-gradient(#99e2d0, #9356dc);
-  border-radius: 25px;
   transition: all 100ms ease-in;
+  border-radius: 25px;
 }
 
 .card {
@@ -112,19 +135,24 @@ body {
   position: relative;
   margin: 12px 0;
 }
+@media screen and (min-width: 768px) {
+  .card {
+    min-width: 520px;
+    margin: 20px;
+  }
+}
 .card--new::after {
   content: "Nouveau";
   color: #2b987d;
   background: #99e2d0;
   border-radius: 2px;
   padding: 5px 10px;
-  width: min-content;
+  width: 58px;
   font-weight: 700;
-  position: absolute;
   font-size: 0.9rem;
+  position: absolute;
   top: 15px;
   right: 15px;
-  z-index: 1;
 }
 .card__illu {
   width: 100%;
@@ -144,9 +172,9 @@ body {
   margin: 5px 0;
 }
 .card__fav {
+  cursor: pointer;
   font-size: 1.4rem;
   position: absolute;
-  cursor: pointer;
   top: 190px;
   right: 15px;
 }
@@ -154,7 +182,7 @@ body {
   transition: opacity 100ms ease-in;
   opacity: 0;
 }
-.card__fav:hover::before {
+.card__fav:hover::before, .card__fav:focus::before {
   position: absolute;
   font-family: "Font Awesome 5 Free";
   content: "";
@@ -226,6 +254,12 @@ body {
 
 .howto {
   padding: 50px 20px;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .howto {
+    max-width: 50%;
+  }
 }
 .howto__title {
   font-size: 1.5rem;
@@ -243,15 +277,20 @@ body {
   margin: 12px 0 12px 5px;
   padding: 30px 30px;
 }
+@media screen and (min-width: 768px) {
+  .howto__steps li {
+    font-size: 1.25rem;
+  }
+}
 .howto__steps li span {
   color: #686868;
   font-size: 1.2rem;
   width: 40px;
 }
-.howto__steps li:last-of-type {
+.howto__steps li:hover {
   background: #f2eafb;
 }
-.howto__steps li:last-of-type span {
+.howto__steps li:hover span {
   color: #9356dc;
 }
 .howto__steps li::before {
@@ -267,6 +306,13 @@ body {
 .restaurants {
   padding: 50px 20px;
   background-color: #f6f6f6;
+}
+@media screen and (min-width: 768px) {
+  .restaurants__wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
 }
 
 /* Menu pages */
@@ -285,10 +331,65 @@ body {
   background: #f6f6f6;
   border-radius: 36px 36px 0 0;
   z-index: 1;
+  /* ----- Alternative solution ----- *
+  &__fav {
+      cursor: pointer;
+      font-size: 1.4rem;
+      position: absolute;
+      top: 8px;
+      right: 25px;
+          &:hover span {
+              visibility: hidden;
+          }
+          &:hover, &:focus {
+              &::before {
+                  opacity: 1; // make the pseudo-element visible on hover
+              }
+          }
+          &::before {
+              position: absolute;
+              font-family: "Font Awesome 5 Free";
+              content: "\f004";
+              font-weight: 900;
+              background: linear-gradient(to bottom, $color-primary, $color-secondary);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              transition: opacity 100ms ease-in;
+              opacity: 0;
+          }
+  }
+  */
 }
 .courses__place {
+  position: relative;
+}
+.courses__place > h1 {
+  font-size: 1.8rem;
+  font-weight: 400;
   margin: 0;
   padding: 0 5px;
+}
+.courses__fav {
+  cursor: pointer;
+  font-size: 1.4rem;
+  position: absolute;
+  top: 8px;
+  right: 25px;
+}
+.courses__fav:hover span, .courses__fav:focus span {
+  transition: opacity 100ms ease-in;
+  opacity: 0;
+}
+.courses__fav:hover::before, .courses__fav:focus::before {
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  content: "";
+  font-weight: 900;
+  background: linear-gradient(to bottom, #9356dc, #ff79da);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .courses__dishes {
   width: 80px;
@@ -311,24 +412,24 @@ body {
 .dish {
   background: #fff;
   border-radius: 15px;
-  box-shadow: 0 0 10px #cccccc;
+  box-shadow: 0 2px 12px #dbdbdb;
   position: relative;
   display: flex;
   flex-flow: row wrap;
   margin: 15px 0;
-  height: 60px;
+  height: 68px;
   width: 100%;
 }
 .dish__desc {
-  padding: 8px;
-  line-height: 1.375rem;
+  padding: 10px;
+  line-height: 1.5rem;
 }
 .dish__desc h3 {
   font-size: 1.1rem;
   font-weight: 500;
 }
 .dish__desc p {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   margin: 0;
 }
 .dish__slide {
@@ -346,17 +447,18 @@ body {
 }
 .dish__price {
   transition: width 640ms ease-in;
-  font-weight: 900;
+  font-size: 0.95rem;
+  font-weight: 700;
   width: 80px;
   margin: 0;
   background: #fff;
-  border-radius: 0 15px 15px 0;
+  border-radius: 0 0 15px 0;
   padding-bottom: 10px;
 }
 .dish__check {
   background-color: #99E2D0;
   border-radius: 0 15px 15px 0;
-  height: 60px;
+  height: 68px;
   overflow: hidden;
   transition: width 420ms ease-in;
   width: 0;
@@ -400,9 +502,22 @@ body {
   background-color: #353535;
   padding: 5px 20px 40px 20px;
 }
+@media screen and (min-width: 768px) {
+  .more {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
 .listing {
   list-style-type: none;
+}
+@media screen and (min-width: 768px) {
+  .listing {
+    padding: 50px 0 0 100px;
+  }
 }
 .listing a {
   color: #fff;
