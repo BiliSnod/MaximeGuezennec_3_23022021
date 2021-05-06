@@ -1,6 +1,10 @@
 .top {
     margin-top: 10px;
-    display: flex;
+        & a {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+        }
         &__spinner {
             margin-top: -10px;
             text-align: center;
@@ -19,15 +23,32 @@
                     animation-direction:alternate;
                 }
         }
+        &__home {
+            font-size: 1.2rem;
+            padding: 15px 0 0 25px;
+            flex: 0 1 auto;
+            @include tablet-type {
+                font-size: 1.8rem;
+                padding-top: 20px;
+            }
+            @include desktop-type {
+                font-size: 2.2rem;
+                padding-top: 30px;
+            }
+        }
         &__logo {
             margin: 0;
             padding: 5px 10px;
             text-align: center;
-            flex-grow: 1;
-        }
-        &__home {
-            padding: 15px 0 0 25px;
-            width: 100%;
-            font-size: 1.2rem;
+            flex: 1 1 100%;
+                &--menu {
+                    margin-left: -42px;
+                    @include tablet-type {
+                        margin-left: -50px;
+                    }
+                    @include desktop-type {
+                        margin-left: -56px;
+                    }
+                }
         }
 }

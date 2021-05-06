@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="fr">
 
     <head>
         <meta charset="UTF-8" />
-        <title>Restaurant À la française - Ohmyfood!</title>
+        <title>Restaurant La note enchantée - Ohmyfood!</title>
         <meta name="description" content="Découvrez des restaurants d'exception et réservez le menu qui vous convient" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="../elements/css/style.css" />
@@ -15,108 +15,174 @@
 
     <body>
     
-        <header>
-            <p><a href="../index.html"><span class="fas fa-arrow-left"></span> <img src="elements/logo/ohmyfood.svg" alt="Ohmyfood!" /></a></p>
+        <header class="top">
+            <a href="../index.html">
+                <div class="top__home">
+                    <span class="fas fa-arrow-left"></span>
+                </div>
+                <p class="top__logo top__logo--menu">ohmyfood</p>
+            </a>
         </header>
 
 
         <main>
-            <h1>À la française <span class="far fa-heart"></span></h1>
+            <div class="decor">
+                <img src="../elements/img/la-note-enchantee_large.jpg" srcset="../elements/img/la-note-enchantee_small.jpg 400w, ../elements/img/la-note-enchantee_large.jpg 768w" sizes="(max-width: 640px) 400px, 768px" alt="La note enchantée" />
+            </div>
 
-            <section>
-                <h2>Entrées</h2>
-                <a href="#">
-                    <article>
-                        <h2>Ravioles de foie gras</h2>
-                        <p>Accompagnés de leur crème à la truffe</p>
-                        <p>25&euro;</p>
-                        <p><span class="fas fa-check-circle"></span></p>
+            <div class="courses">
+                <div class="courses__place">
+                    <h1>La note enchantée</h1>
+                    <div class="courses__fav">
+                        <a href="#"><span class="far fa-heart"></span></a>
+                    </div>
+                </div>
+
+                <section>
+                    <h2 class="courses__dishes">Entrées</h2>
+
+                    <article class="dish">
+                        <div class="dish__desc">
+                            <h3>Ravioles de foie gras</h3>
+                            <p>Accompagnés de leur crème à la truffe</p>
+                        </div>
+                        <div class="dish__slide">
+                            <p class="dish__price">25&euro;</p>
+                            <div class="dish__check">
+                                <span class="fas fa-check-circle"></span>
+                            </div>
+                        </div>
                     </article>
-                </a>
-                <a href="#">
-                    <article>
-                        <h2>Caviar osciètre</h2>
-                        <p>Sur blini à la farine de blé noir</p>
-                        <p>35&euro;</p>
-                        <p><span class="fas fa-check-circle"></span></p>
+
+                    <article class="dish">
+                        <div class="dish__desc">
+                            <h3>Caviar osciètre</h3>
+                            <p>Sur blini à la farine de blé noir</p>
+                        </div>
+                        <div class="dish__slide">
+                            <p class="dish__price">35&euro;</p>
+                            <div class="dish__check">
+                                <span class="fas fa-check-circle"></span>
+                            </div>
+                        </div>
                     </article>
-                </a>
-                <a href="#">
-                    <article>
-                        <h2>Homard et espuma de potiron</h2>
-                        <p>Mariné aux zestes d'orange</p>
-                        <p>20&euro;</p>
-                        <p><span class="fas fa-check-circle"></span></p>
+
+                    <article class="dish">
+                        <div class="dish__desc">
+                            <h3>Homard et espuma de potiron</h3>
+                            <p>Mariné aux zestes d'orange</p>
+                        </div>
+                        <div class="dish__slide">
+                            <p class="dish__price">20&euro;</p>
+                            <div class="dish__check">
+                                <span class="fas fa-check-circle"></span>
+                            </div>
+                        </div>
                     </article>
-                </a>
-                <a href="#">
-                    <article>
-                        <h2>Foie gras de canard cuit entier</h2>
-                        <p>Confiture de figue et pain toasté</p>
-                        <p>35&euro;</p>
-                        <p><span class="fas fa-check-circle"></span></p>
+
+                    <article class="dish">
+                        <div class="dish__desc">
+                            <h3>Foie gras de canard cuit entier</h3>
+                            <p>Confiture de figue et pain toasté</p>
+                        </div>
+                        <div class="dish__slide">
+                            <p class="dish__price">35&euro;</p>
+                            <div class="dish__check">
+                                <span class="fas fa-check-circle"></span>
+                            </div>
+                        </div>
                     </article>
-                </a>
-            </section>
+                </section>
+                
+                <section>
+                    <h2 class="courses__dishes">Plats</h2>
+
+                    <article class="dish">
+                        <div class="dish__desc">
+                            <h3>Noix de coquilles Saint-Jacques</h3>
+                            <p>Sur lit de purée de céleri-rave</p>
+                        </div>
+                        <div class="dish__slide">
+                            <p class="dish__price">40&euro;</p>
+                            <div class="dish__check">
+                                <span class="fas fa-check-circle"></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish">
+                        <div class="dish__desc">
+                            <h3>Langoustine poêlée</h3>
+                            <p>Purée de patate douce</p>
+                        </div>
+                        <div class="dish__slide">
+                            <p class="dish__price">35&euro;</p>
+                            <div class="dish__check">
+                                <span class="fas fa-check-circle"></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish">
+                        <div class="dish__desc">
+                            <h3>Mijoté de queue de boeuf</h3>
+                            <p>Et riz sauvage aux zestes de citron</p>
+                        </div>
+                        <div class="dish__slide">
+                            <p class="dish__price">44&euro;</p>
+                            <div class="dish__check">
+                                <span class="fas fa-check-circle"></span>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                
+                <section>
+                    <h2 class="courses__dishes">Desserts</h2>
+
+                    <article class="dish">
+                        <div class="dish__desc">
+                            <h3>Macaron noisette et chocolat</h3>
+                            <p>Glace au caramel brun et sel de Guérande</p>
+                        </div>
+                        <div class="dish__slide">
+                            <p class="dish__price">18&euro;</p>
+                            <div class="dish__check">
+                                <span class="fas fa-check-circle"></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish">
+                        <div class="dish__desc">
+                            <h3>Baba au rhum revisité</h3>
+                            <p>Avec son coulis de citron</p>
+                        </div>
+                        <div class="dish__slide">
+                            <p class="dish__price">22&euro;</p>
+                            <div class="dish__check">
+                                <span class="fas fa-check-circle"></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="dish">
+                        <div class="dish__desc">
+                            <h3>Tarte au citron meringuée</h3>
+                            <p>Déstructurée</p>
+                        </div>
+                        <div class="dish__slide">
+                            <p class="dish__price">23&euro;</p>
+                            <div class="dish__check">
+                                <span class="fas fa-check-circle"></span>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </div>
             
-            <section>
-                <h2>Plats</h2>
-                <a href="#">
-                    <article>
-                        <h2>Noix de coquilles Saint-Jacques</h2>
-                        <p>Sur lit de purée de céleri-rave</p>
-                        <p>40&euro;</p>
-                        <p><span class="fas fa-check-circle"></span></p>
-                    </article>
-                </a>
-                <a href="#">
-                    <article>
-                        <h2>Langoustine poêlée</h2>
-                        <p>Purée de patate douce</p>
-                        <p>35&euro;</p>
-                        <p><span class="fas fa-check-circle"></span></p>
-                    </article>
-                </a>
-                <a href="#">
-                    <article>
-                        <h2>Mijoté de queue de boeuf</h2>
-                        <p>Et riz sauvage aux zestes de citron</p>
-                        <p>44&euro;</p>
-                        <p><span class="fas fa-check-circle"></span></p>
-                    </article>
-                </a>
-            </section>
-            
-            <section>
-                <h2>Desserts</h2>
-                <a href="#">
-                    <article>
-                        <h2>Macaron noisette et chocolat</h2>
-                        <p>Glace au caramel brun et sel de Guérande</p>
-                        <p>18&euro;</p>
-                        <p><span class="fas fa-check-circle"></span></p>
-                    </article>
-                </a>
-                <a href="#">
-                    <article>
-                        <h2>Baba au rhum revisité</h2>
-                        <p>Avec son coulis de citron</p>
-                        <p>22&euro;</p>
-                        <p><span class="fas fa-check-circle"></span></p>
-                    </article>
-                </a>
-                <a href="#">
-                    <article>
-                        <h2>Tarte au citron meringuée</h2>
-                        <p>Déstructurée</p>
-                        <p>23&euro;</p>
-                        <p><span class="fas fa-check-circle"></span></p>
-                    </article>
-                </a>
-            </section>
-            
-            <div>
-                <button>Explorer nos restaurants</button>
+            <div class="order">
+                <p class="button"><a href="#">Commander</a></p>
             </div>
         </main>
 
@@ -128,7 +194,7 @@
                     <li class="listing__links--top"><span class="fas fa-utensils"></span><a href="#">Proposer un restaurant</a></li>
                     <li class="listing__links--top"><span class="fas fa-hands-helping"></span><a href="#">Devenir partenaire</a></li>
                     <li class="listing__links"><a href="#">Mentions légales</a></li>
-                    <li class="listing__links"><a href="#">Contact</a></li>
+                    <li class="listing__links"><a href="mailto:contact@ohmyfood.paris">Contact</a></li>
                 </ul>
             </nav>
         </footer>

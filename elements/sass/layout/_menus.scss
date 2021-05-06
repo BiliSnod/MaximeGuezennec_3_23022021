@@ -1,0 +1,238 @@
+.decor {
+    position: relative;
+    z-index:-1;
+        & img {
+            object-fit: cover;
+            height: 260px;
+            width: 100%;
+            @include tablet-type {
+                height: 340px;
+            }
+            @include desktop-type {
+                height: 420px;
+                object-position: 20% 50%;
+            }
+        }
+}
+
+.courses {
+    margin-top: -50px;
+    padding: 30px 12px;
+    background: $color-light-bkgd;
+    border-radius: $radius-courses $radius-courses 0 0;
+    z-index: 1;
+    @include tablet-type {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1280px;
+        width: 80%;
+    }
+        &__place {
+            position: relative; // necessary to place "courses__fav"
+                > h1 {
+                font-size: 1.8rem;
+                font-weight: 400;
+                margin: 0;
+                padding: 0 5px;
+                @include tablet-type {
+                    font-size: 2rem;
+                    margin: 0 auto;
+                    width: 80%;
+                }
+                @include desktop-type {
+                    font-size: 2.2rem;
+                    width: 60%;
+                }
+                }
+        }
+        &__fav {
+            cursor: pointer;
+            font-size: 1.4rem;
+            position: absolute;
+            top: 8px;
+            right: 25px;
+            @include tablet-type {
+                right: 10%;
+            }
+            @include desktop-type {
+                right: 20%;
+            }
+                &:hover span, &:focus span {
+                    transition: opacity 100ms ease-in;
+                    opacity: 0; // base icon disappear on state modification
+                }
+                &:hover::before, &:focus::before {
+                    @include fav-heart; // on state modification, the colored icon is displayed
+                }
+
+        }
+        /* ----- Alternative solution ----- *
+        &__fav {
+            cursor: pointer;
+            font-size: 1.4rem;
+            position: absolute;
+            top: 8px;
+            right: 25px;
+                &:hover span {
+                    visibility: hidden;
+                }
+                &:hover, &:focus {
+                    &::before {
+                        opacity: 1; // make the pseudo-element visible on hover
+                    }
+                }
+                &::before {
+                    position: absolute;
+                    font-family: "Font Awesome 5 Free";
+                    content: "\f004";
+                    font-weight: 900;
+                    background: linear-gradient(to bottom, $color-primary, $color-secondary);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    transition: opacity 100ms ease-in;
+                    opacity: 0;
+                }
+        }
+        */
+        &__dishes {
+            width: 80px;
+            position: relative;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 300;
+            margin-top: 30px;
+            padding: 8px 5px;
+            @include tablet-type {
+                margin-left: auto;
+                margin-right: auto;
+                width: 80%;
+            }
+            @include desktop-type {
+                width: 60%;
+            }
+                &::after { // partial underlining
+                    position: absolute;
+                    bottom: 0;
+                    left: 5px;
+                    content: "";
+                    border-bottom: 3px solid $color-tertiary;
+                    width: 40px;
+                }
+        }
+}
+
+.dish {
+    background: $color-lightest;
+    border-radius: $radius-dish;
+    box-shadow: 0 2px 12px lighten($color-darkest, 86%);
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 15px 0;
+    height: 68px;
+    width: 100%;
+    animation: courses 800ms ease-out backwards; // progressively display the dishes for each course
+    @include tablet-type {
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+    }
+    @include desktop-type {
+        width: 60%;
+    }
+        &:nth-of-type(2) {
+            animation-delay: 200ms;
+        }
+        &:nth-of-type(3) {
+            animation-delay: 400ms;
+        }
+        &:nth-of-type(4) {
+            animation-delay: 600ms;
+        }
+        &__desc {
+            padding: 10px;
+            line-height: 1.5rem;
+            & h3 {
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+            & p {
+                font-size: 0.95rem;
+                margin: 0;
+            }
+        }
+        &__slide {
+            text-align: center;
+            position: absolute;
+            top:0;
+            right: 0;
+            display: flex;
+            flex-flow: row wrap;
+            align-items: flex-end;
+                &::before {
+                    content: "...";
+                    font-weight: 400;
+                    width: 30px;
+                    padding-bottom: 13px;
+                    opacity: 0;
+            }
+        }
+        &__price {  
+            transition: width 640ms ease-in;
+            font-size: 0.95rem;
+            font-weight: 700;
+            width: 80px;
+            margin: 0;
+            background: $color-lightest;
+            border-radius: 0 0 $radius-dish 0;
+            padding-bottom: 10px;
+        }
+        &__check {
+            background-color:#99E2D0;
+            border-radius: 0 $radius-dish $radius-dish 0;
+            height: 68px;
+            overflow: hidden;
+            transition: width 420ms ease-in;
+            width: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+                & span {
+                    color: $color-lightest;
+                    font-size: 1.4rem;
+                }
+        }
+        &:hover .dish__slide {
+            background: linear-gradient(0.25turn, transparent, $color-lightest 2%, $color-lightest);
+            border-radius: 0 $radius-dish $radius-dish 0;
+        }
+        &:hover .dish__slide::before {
+            opacity: 1;
+            transition: opacity 1000ms ease-in-out;
+        }
+        &:hover .dish__price {
+            width: 60px;
+            transition: width 200ms ease-in-out;
+        }
+        &:hover .dish__check {
+            width: 80px;
+                & span {
+                    cursor: pointer;
+                    transform: rotate(1turn);
+                    transition: transform 500ms;
+                }
+        }
+}
+
+.order {
+    background: $color-light-bkgd;
+    text-align: center;
+    padding: 0 12px 80px 12px ;
+    @include tablet-type {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1280px;
+        width: 80%;
+    }
+}

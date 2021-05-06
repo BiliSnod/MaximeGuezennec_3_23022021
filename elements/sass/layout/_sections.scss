@@ -9,6 +9,12 @@
             padding: 15px 0;
             font-size: 0.98rem;
             font-weight: 500;
+            @include tablet-type {
+                font-size: 1.05rem;
+            }
+            @include desktop-type {
+                font-size: 1.1rem;
+            }
                 & .fas {
                     padding-right: 10px;
                 }
@@ -17,9 +23,22 @@
             margin: 40px 50px 0 50px;
             font-size: 1.5rem;
             font-weight: 700;
+            @include tablet-type {
+                font-size: 1.75rem;
+            }
+            @include desktop-type {
+                font-size: 2rem;
+            }
         }
         &__tagline {
             font-size: 1.1rem;
+            padding: 0 35px;
+            @include tablet-type {
+                font-size: 1.25rem;
+            }
+            @include desktop-type {
+                font-size: 1.4rem;
+            }
         }
 }
 
@@ -27,7 +46,12 @@
     padding: 50px 20px;
     margin: 0 auto;
     @include tablet-type {
-        max-width: 50%;
+        max-width: 80%;
+        max-width: 600px;
+    }
+    @include desktop-type {
+        width: 60%;
+        max-width: 800px;
     }
         &__title {
             font-size: 1.5rem;
@@ -44,6 +68,9 @@
                     margin: 12px 0 12px 5px;
                     padding: 30px 30px;
                     @include tablet-type {
+                        font-size: 1.125rem;
+                    }
+                    @include desktop-type {
                         font-size: 1.25rem;
                     }
                         & span {
@@ -73,189 +100,37 @@
 .restaurants {
     padding: 50px 20px;
     background-color: $color-light-bkgd;
+        > h2 {
+            margin: 0 auto;
+            @include tablet-type {
+                padding-bottom: 10px;
+                font-size: 1.75rem;
+            }
+            @include desktop-type {
+                max-width: 1280px;
+                padding-bottom: 20px;
+                font-size: 2rem;
+            }
+        }
         &__wrapper {
+            margin: 0 auto;
             @include tablet-type {
                 display: flex;
                 flex-flow: row wrap;
                 justify-content: center;
-        }
-    }
-}
-
-
-/* Menu pages */
-
-.decor {
-    position: relative;
-    z-index:-1;
-        & img {
-            object-fit: cover;
-            width: 100%;
-        }
-}
-
-.courses {
-    margin-top: -50px;
-    padding: 30px 12px;
-    background: $color-light-bkgd;
-    border-radius: $radius-courses $radius-courses 0 0;
-    z-index: 1;
-        &__place {
-            position: relative; // necessary to place "courses__fav"
-                > h1 {
-                font-size: 1.8rem;
-                font-weight: 400;
-                margin: 0;
-                padding: 0 5px;
-                }
-        }
-        &__fav {
-            cursor: pointer;
-            font-size: 1.4rem;
-            position: absolute;
-            top: 8px;
-            right: 25px;
-                &:hover span, &:focus span {
-                    transition: opacity 100ms ease-in;
-                    opacity: 0; // base icon disappear on state modification
-                }
-                &:hover::before, &:focus::before {
-                    @include fav-heart; // on state modification, the colored icon is displayed
-                }
-
-        }
-        /* ----- Alternative solution ----- *
-        &__fav {
-            cursor: pointer;
-            font-size: 1.4rem;
-            position: absolute;
-            top: 8px;
-            right: 25px;
-                &:hover span {
-                    visibility: hidden;
-                }
-                &:hover, &:focus {
-                    &::before {
-                        opacity: 1; // make the pseudo-element visible on hover
-                    }
-                }
-                &::before {
-                    position: absolute;
-                    font-family: "Font Awesome 5 Free";
-                    content: "\f004";
-                    font-weight: 900;
-                    background: linear-gradient(to bottom, $color-primary, $color-secondary);
-                    background-clip: text;
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    transition: opacity 100ms ease-in;
-                    opacity: 0;
-                }
-        }
-        */
-        &__dishes {
-            width: 80px;
-            position: relative;
-            font-size: 1rem;
-            text-transform: uppercase;
-            font-weight: 300;
-            margin-top: 30px;
-            padding: 8px 5px;
-                &::after {
-                    position: absolute;
-                    bottom: 0;
-                    left: 5px;
-                    content: "";
-                    border-bottom: 3px solid $color-tertiary;
-                    width: 40px;
-                }
-        }
-}
-
-.dish {
-    background: $color-lightest;
-    border-radius: $radius-dish;
-    box-shadow: 0 2px 12px lighten($color-darkest, 86%);
-    position: relative;
-    display: flex;
-    flex-flow: row wrap;
-    margin: 15px 0;
-    height: 68px;
-    width: 100%;
-        &__desc {
-            padding: 10px;
-            line-height: 1.5rem;
-            & h3 {
-                font-size: 1.1rem;
-                font-weight: 500;
             }
-            & p {
-                font-size: 0.95rem;
-                margin: 0;
+            @include desktop-type {
+                max-width: 2600px;
+            }
+            & a {
+                @include tablet-type {
+                    display: block;
+                    flex: 1 1 48%;
+                    margin: 0 1%;
+                }
+                @include desktop-type {
+                    max-width: 590px;
+                }
             }
         }
-        &__slide {
-            text-align: center;
-            position: absolute;
-            top:0;
-            right: 0;
-            display: flex;
-            flex-flow: row wrap;
-            align-items: flex-end;
-                &::before {
-                    content:"";
-                    opacity: 0;
-            }
-        }
-        &__price {  
-            transition: width 640ms ease-in;
-            font-size: 0.95rem;
-            font-weight: 700;
-            width: 80px;
-            margin: 0;
-            background: $color-lightest;
-            border-radius: 0 0 $radius-dish 0;
-            padding-bottom: 10px;
-        }
-        &__check {
-            background-color:#99E2D0;
-            border-radius: 0 $radius-dish $radius-dish 0;
-            height: 68px;
-            overflow: hidden;
-            transition: width 420ms ease-in;
-            width: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-                & span {
-                    color: $color-lightest;
-                    font-size: 1.4rem;
-                }
-        }
-        &:hover .dish__slide {
-            background: linear-gradient(0.25turn, transparent, $color-lightest 2%, $color-lightest);
-            border-radius: 0 $radius-dish $radius-dish 0;
-        }
-        &:hover .dish__slide::before {
-            content: "...";
-            font-weight: 400;
-            width: 30px;
-            opacity: 1;
-            transition: opacity 1000ms ease-in-out;
-            padding-bottom: 10px;
-        }
-        &:hover .dish__check {
-            width: 80px;
-                & span {
-                    cursor: pointer;
-                    transform: rotate(1turn);
-                    transition: transform 500ms;
-                }
-        }
-}
-
-.order {
-    background: $color-light-bkgd;
-    text-align: center;
-    padding-bottom: 80px;
 }

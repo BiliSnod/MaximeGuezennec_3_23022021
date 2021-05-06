@@ -4,10 +4,6 @@
     box-shadow: 0 5px 10px #ddd;
     position: relative;
     margin: 12px 0;
-    @include tablet-type {
-        min-width: 520px;
-        margin: 20px;
-    }
         &--new::after { // label for new restaurants
             content: "Nouveau";
             color: darken($color-tertiary, 36%);
