@@ -135,13 +135,13 @@
   -webkit-text-fill-color: transparent;
 }
 
+body {
+  width: 100%;
+}
+
 body, h2, h3, ol, ul {
   margin: 0;
   padding: 0;
-}
-
-body {
-  width: 100%;
 }
 
 a {
