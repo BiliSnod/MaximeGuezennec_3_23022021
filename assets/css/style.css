@@ -79,9 +79,13 @@
 .card {
   background-color: #fff;
   border-radius: 20px;
-  box-shadow: 0 5px 10px #ddd;
+  box-shadow: 0 5px 10px #cccccc;
   position: relative;
   margin: 12px 0;
+}
+.card:hover {
+  box-shadow: 0 5px 10px #bfbfbf;
+  transition: box-shadow 100ms ease-in;
 }
 .card--new::after {
   content: "Nouveau";
@@ -365,6 +369,8 @@ body {
 }
 .howto__steps li:hover {
   background: #f2eafb;
+  box-shadow: 0 5px 10px #c3c3c3;
+  transition: all 100ms ease-in;
 }
 .howto__steps li:hover span {
   color: #9356dc;

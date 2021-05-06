@@ -80,6 +80,8 @@
                         }
                         &:hover {
                             background: lighten($color-primary, 35%);
+                            box-shadow: 0 5px 10px darken($color-light-bkgd, 20%);
+                            transition: all 100ms ease-in;
                                 & span {
                                     color: $color-primary;
                                 }

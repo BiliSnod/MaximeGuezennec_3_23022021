@@ -1,9 +1,13 @@
 .card {
     background-color: $color-lightest;
     border-radius: map-get($radius-cards, outer);
-    box-shadow: 0 5px 10px #ddd;
+    box-shadow: 0 5px 10px lighten($color-darkest, 80%);
     position: relative;
     margin: 12px 0;
+        &:hover {
+            box-shadow: 0 5px 10px lighten($color-darkest, 75%);
+            transition: box-shadow 100ms ease-in;
+        }
         &--new::after { // label for new restaurants
             content: "Nouveau";
             color: darken($color-tertiary, 36%);
