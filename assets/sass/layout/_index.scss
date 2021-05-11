@@ -1,14 +1,14 @@
 .intro {
-    text-align: center;
     background-color: $color-light-bkgd;
+    text-align: center;
     padding-bottom: 50px;
         &__location {
             background-color: darken($color-light-bkgd, 5%);
             box-shadow: inset 0 2px 4px darken($color-light-bkgd, 20%);
-            margin: 0 0 0 -30px;
-            padding: 15px 0;
             font-size: 0.98rem;
             font-weight: 500;
+            margin: 0 0 0 -30px;
+            padding: 15px 0;
             @include tablet-type {
                 font-size: 1.05rem;
             }
@@ -20,9 +20,9 @@
                 }
         }
         &__headline {
-            margin: 40px 50px 0 50px;
             font-size: 1.5rem;
             font-weight: 700;
+            margin: 40px 50px 0 50px;
             @include tablet-type {
                 font-size: 1.75rem;
             }
@@ -46,7 +46,7 @@
     padding: 50px 20px;
     margin: 0 auto;
     @include tablet-type {
-        max-width: 80%;
+        width: 80%;
         max-width: 600px;
     }
     @include desktop-type {
@@ -61,10 +61,10 @@
             list-style-type: none;
                 & li {
                     counter-increment: item;
-                    font-weight: 500;
                     background: $color-light-bkgd;
                     box-shadow: 0 5px 10px darken($color-light-bkgd, 10%);
                     border-radius: 25px;
+                    font-weight: 500;
                     margin: 12px 0 12px 5px;
                     padding: 30px 30px;
                     @include tablet-type {
@@ -89,10 +89,10 @@
                 }
                 & li::before {
                     content: counter(item) "";
-                    color: $color-lightest;
-                    font-size: 0.9rem;
                     background: $color-primary;
                     border-radius: 50px;
+                    color: $color-lightest;
+                    font-size: 0.9rem;
                     margin: 0 20px 0 -36px;
                     padding: 3px 8px;
                 }
@@ -100,18 +100,18 @@
 }
 
 .restaurants {
-    padding: 50px 20px;
     background-color: $color-light-bkgd;
+    padding: 50px 20px;
         > h2 {
             margin: 0 auto;
             @include tablet-type {
-                padding-bottom: 10px;
                 font-size: 1.75rem;
+                padding-bottom: 10px;
             }
             @include desktop-type {
+                font-size: 2rem;
                 max-width: 1280px;
                 padding-bottom: 20px;
-                font-size: 2rem;
             }
         }
         &__wrapper {
@@ -122,7 +122,7 @@
                 justify-content: center;
             }
             @include desktop-type {
-                max-width: 2600px;
+                max-width: 1280px;
             }
             & a {
                 @include tablet-type {

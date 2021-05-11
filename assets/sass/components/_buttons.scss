@@ -1,15 +1,15 @@
 .button {
-    cursor: pointer;
-    font-weight: 400;
-    padding: 16px 20px;
-    background: linear-gradient($color-secondary, $color-primary);
-    box-shadow: 0 5px 10px lighten($color-darkest, 80%);
-    border: 0;
-    border-radius: $radius-buttons;
-    width: 180px;
-    margin: 0 auto;
     position: relative; // necessary to place the pseudo-element in absolute position
     z-index: 0; // necessary for the the pseudo-element to be visible on hover
+    background: linear-gradient($color-secondary, $color-primary);
+    border: 0;
+    border-radius: $radius-buttons;
+    box-shadow: 0 5px 10px lighten($color-darkest, 80%);
+    font-weight: 400;
+    width: 180px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    cursor: pointer;
         & a {
             color: $color-lightest;
         }
@@ -22,7 +22,7 @@
         &::after {
             @include pseudo-element;
             background: linear-gradient($color-tertiary, $color-primary);
-            transition: all 100ms ease-in;
             border-radius: $radius-buttons;
+            transition: all 100ms ease-in;
         }
 }

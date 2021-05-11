@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "sass": "sass --watch assets/sass/main.scss:assets/css/style.min.css --style=compressed",
-    "prefix": "postcss assets/css/style.css"
+    "prefix": "postcss assets/css/style.prefix.css --use autoprefixer -d assets/css/"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,6 @@
     "url": "https://github.com/BiliSnod/MaximeGuezennec_3_23022021/issues"
   },
   "homepage": "https://github.com/BiliSnod/MaximeGuezennec_3_23022021#readme",
-  "description": ""
+  "description": "",
+  "browserslist": "last 5 versions"
 }

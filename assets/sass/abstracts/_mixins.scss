@@ -21,15 +21,12 @@
     opacity: 0;
 }
 
-/*
 @mixin fav-heart {
     position: absolute;
+    background: linear-gradient(to bottom, $color-primary, $color-secondary);
     font-family: "Font Awesome 5 Free";
     content: "\f004";
     font-weight: 900;
-    background: linear-gradient(to bottom, $color-primary, $color-secondary);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-*/

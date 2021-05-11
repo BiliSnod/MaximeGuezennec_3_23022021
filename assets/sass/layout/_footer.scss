@@ -1,6 +1,6 @@
 .more {
-    color: $color-lightest;
     background-color: $color-dark-bkgd;
+    color: $color-lightest;
     padding: 5px 20px 40px 20px;
     @include tablet-type {
         display: flex;
