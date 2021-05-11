@@ -7,10 +7,10 @@
             width: 100%;
             @include tablet-type {
                 height: 340px;
+                object-position: 50% 60%;
             }
             @include desktop-type {
                 height: 420px;
-                object-position: 20% 50%;
             }
         }
 }
@@ -67,6 +67,27 @@
 
         }
         /* ----- Alternative solution ----- *
+        &__fav {
+            cursor: pointer;
+            font-size: 1.4rem;
+            position: absolute;
+            top: 8px;
+            right: 25px;
+            @include tablet-type {
+                right: 10%;
+            }
+            @include desktop-type {
+                right: 20%;
+            }
+                &:hover span, &:focus span {
+                    transition: opacity 100ms ease-in;
+                    opacity: 0; // base icon disappear on state modification
+                }
+                &:hover::before, &:focus::before {
+                    @include fav-heart; // on state modification, the colored icon is displayed
+                }
+
+        }
         &__fav {
             cursor: pointer;
             font-size: 1.4rem;
@@ -163,33 +184,47 @@
             }
         }
         &__slide {
-            text-align: center;
             position: absolute;
             top:0;
             right: 0;
+            background-image: linear-gradient(0.25turn, transparent, $color-lightest 2%, $color-lightest); // smoothing the border
+            border-radius: 0 $radius-dish $radius-dish 0;
+            text-align: center;
             display: flex;
             flex-flow: row wrap;
             align-items: flex-end;
-                &::before {
+                &::before { // display dots to hide text when hovering the dish box
                     content: "...";
                     font-weight: 400;
-                    width: 30px;
+                    width: 10px;
                     padding-bottom: 13px;
                     opacity: 0;
+                    transition: width 400ms ease-in-out, opacity 200ms ease-in-out;
+                    @include tablet-type { // disabled for viewports larger than mobile
+                        content: "";
+                    }
             }
         }
-        &__price {  
-            transition: width 640ms ease-in;
+        &:hover .dish__slide {
+                &::before {
+                    width: 30px;
+                    opacity: 1;
+                }
+        }
+        &__price {
+            border-radius: 0 0 $radius-dish 0;
             font-size: 0.95rem;
             font-weight: 700;
-            width: 80px;
+            text-align: right;
             margin: 0;
-            background: $color-lightest;
-            border-radius: 0 0 $radius-dish 0;
-            padding-bottom: 10px;
+            padding: 0 20px 13px 0;
+            transition: padding-right 100ms ease-out 420ms; // movement accentuation effect
+        }
+        &:hover .dish__price {
+            padding-right: 25px;
         }
         &__check {
-            background-color:#99E2D0;
+            background-color: $color-tertiary;
             border-radius: 0 $radius-dish $radius-dish 0;
             height: 68px;
             overflow: hidden;
@@ -201,26 +236,14 @@
                 & span {
                     color: $color-lightest;
                     font-size: 1.4rem;
+                    transition: transform 500ms;
                 }
-        }
-        &:hover .dish__slide {
-            background: linear-gradient(0.25turn, transparent, $color-lightest 2%, $color-lightest);
-            border-radius: 0 $radius-dish $radius-dish 0;
-        }
-        &:hover .dish__slide::before {
-            opacity: 1;
-            transition: opacity 1000ms ease-in-out;
-        }
-        &:hover .dish__price {
-            width: 60px;
-            transition: width 200ms ease-in-out;
         }
         &:hover .dish__check {
             width: 80px;
                 & span {
                     cursor: pointer;
                     transform: rotate(1turn);
-                    transition: transform 500ms;
                 }
         }
 }
