@@ -32,6 +32,68 @@
     transform: rotate(-5deg);
   }
 }
+.card {
+  position: relative;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px #cccccc;
+  margin: 12px 0;
+}
+.card:hover {
+  box-shadow: 0 5px 10px #bfbfbf;
+  transition: box-shadow 100ms ease-in;
+}
+.card--new::after {
+  content: "Nouveau";
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #99e2d0;
+  border-radius: 2px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #2b987d;
+  padding: 5px 10px;
+  width: 58px;
+}
+.card__illu {
+  object-fit: cover;
+  object-position: 50% 60%;
+  border-radius: 20px 20px 0 0;
+  height: 174px;
+  width: 100%;
+}
+.card div {
+  padding: 15px;
+}
+.card__name {
+  font-weight: 700;
+}
+.card__place {
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+.card__fav {
+  position: absolute;
+  top: 190px;
+  right: 15px;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.card__fav:hover span, .card__fav:focus span {
+  opacity: 0;
+  transition: opacity 100ms ease-in;
+}
+.card__fav:hover::before, .card__fav:focus::before {
+  position: absolute;
+  background: linear-gradient(to bottom, #9356dc, #ff79da);
+  font-family: "Font Awesome 5 Free";
+  content: "";
+  font-weight: 900;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @keyframes courses {
   from {
     transform: translateY(20px);
@@ -43,17 +105,17 @@
   }
 }
 .button {
-  cursor: pointer;
-  font-weight: 400;
-  padding: 16px 20px;
-  background: linear-gradient(#ff79da, #9356dc);
-  box-shadow: 0 5px 10px #cccccc;
-  border: 0;
-  border-radius: 25px;
-  width: 180px;
-  margin: 0 auto;
   position: relative;
   z-index: 0;
+  background: linear-gradient(#ff79da, #9356dc);
+  border: 0;
+  border-radius: 25px;
+  box-shadow: 0 5px 10px #cccccc;
+  font-weight: 400;
+  width: 180px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  cursor: pointer;
 }
 .button a {
   color: #fff;
@@ -72,71 +134,8 @@
   z-index: -1;
   opacity: 0;
   background: linear-gradient(#99e2d0, #9356dc);
-  transition: all 100ms ease-in;
   border-radius: 25px;
-}
-
-.card {
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 5px 10px #cccccc;
-  position: relative;
-  margin: 12px 0;
-}
-.card:hover {
-  box-shadow: 0 5px 10px #bfbfbf;
-  transition: box-shadow 100ms ease-in;
-}
-.card--new::after {
-  content: "Nouveau";
-  color: #2b987d;
-  background: #99e2d0;
-  border-radius: 2px;
-  padding: 5px 10px;
-  width: 58px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-.card__illu {
-  width: 100%;
-  height: 174px;
-  border-radius: 20px 20px 0 0;
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-.card div {
-  padding: 15px;
-}
-.card__name {
-  font-weight: 700;
-}
-.card__place {
-  font-size: 1.1rem;
-  margin: 5px 0;
-}
-.card__fav {
-  cursor: pointer;
-  font-size: 1.4rem;
-  position: absolute;
-  top: 190px;
-  right: 15px;
-}
-.card__fav:hover span, .card__fav:focus span {
-  transition: opacity 100ms ease-in;
-  opacity: 0;
-}
-.card__fav:hover::before, .card__fav:focus::before {
-  position: absolute;
-  font-family: "Font Awesome 5 Free";
-  content: "";
-  font-weight: 900;
-  background: linear-gradient(to bottom, #9356dc, #ff79da);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  transition: all 100ms ease-in;
 }
 
 body {
@@ -210,27 +209,27 @@ body {
   justify-content: flex-start;
 }
 .top__spinner {
-  margin-top: -10px;
-  text-align: center;
-  color: #fff;
   position: absolute;
   z-index: 2;
   background-color: #782cd3;
+  color: #fff;
+  text-align: center;
   height: 90vh;
   width: 100%;
+  margin-top: -10px;
   animation: spin-move 1800ms ease-in-out 0s both;
 }
 .top__spinner span {
-  margin-top: 36vh;
   display: inline-block;
   animation: spin-effect 100ms ease-in-out 1000ms;
   animation-iteration-count: 3;
   animation-direction: alternate;
+  margin-top: 36vh;
 }
 .top__home {
+  flex: 0 1 auto;
   font-size: 1.2rem;
   padding: 15px 0 0 25px;
-  flex: 0 1 auto;
 }
 @media screen and (min-width: 640px) {
   .top__home {
@@ -245,10 +244,10 @@ body {
   }
 }
 .top__logo {
+  flex: 1 1 100%;
+  text-align: center;
   margin: 0;
   padding: 5px 10px;
-  text-align: center;
-  flex: 1 1 100%;
 }
 .top__logo--menu {
   margin-left: -42px;
@@ -265,17 +264,17 @@ body {
 }
 
 .intro {
-  text-align: center;
   background-color: #f6f6f6;
+  text-align: center;
   padding-bottom: 50px;
 }
 .intro__location {
   background-color: #e9e9e9;
   box-shadow: inset 0 2px 4px #c3c3c3;
-  margin: 0 0 0 -30px;
-  padding: 15px 0;
   font-size: 0.98rem;
   font-weight: 500;
+  margin: 0 0 0 -30px;
+  padding: 15px 0;
 }
 @media screen and (min-width: 640px) {
   .intro__location {
@@ -291,9 +290,9 @@ body {
   padding-right: 10px;
 }
 .intro__headline {
-  margin: 40px 50px 0 50px;
   font-size: 1.5rem;
   font-weight: 700;
+  margin: 40px 50px 0 50px;
 }
 @media screen and (min-width: 640px) {
   .intro__headline {
@@ -326,7 +325,7 @@ body {
 }
 @media screen and (min-width: 640px) {
   .howto {
-    max-width: 80%;
+    width: 80%;
     max-width: 600px;
   }
 }
@@ -345,10 +344,10 @@ body {
 }
 .howto__steps li {
   counter-increment: item;
-  font-weight: 500;
   background: #f6f6f6;
   box-shadow: 0 5px 10px #dddddd;
   border-radius: 25px;
+  font-weight: 500;
   margin: 12px 0 12px 5px;
   padding: 30px 30px;
 }
@@ -377,32 +376,32 @@ body {
 }
 .howto__steps li::before {
   content: counter(item) "";
-  color: #fff;
-  font-size: 0.9rem;
   background: #9356dc;
   border-radius: 50px;
+  color: #fff;
+  font-size: 0.9rem;
   margin: 0 20px 0 -36px;
   padding: 3px 8px;
 }
 
 .restaurants {
-  padding: 50px 20px;
   background-color: #f6f6f6;
+  padding: 50px 20px;
 }
 .restaurants > h2 {
   margin: 0 auto;
 }
 @media screen and (min-width: 640px) {
   .restaurants > h2 {
-    padding-bottom: 10px;
     font-size: 1.75rem;
+    padding-bottom: 10px;
   }
 }
 @media screen and (min-width: 1024px) {
   .restaurants > h2 {
+    font-size: 2rem;
     max-width: 1280px;
     padding-bottom: 20px;
-    font-size: 2rem;
   }
 }
 .restaurants__wrapper {
@@ -417,7 +416,7 @@ body {
 }
 @media screen and (min-width: 1024px) {
   .restaurants__wrapper {
-    max-width: 2600px;
+    max-width: 1280px;
   }
 }
 @media screen and (min-width: 640px) {
@@ -444,13 +443,13 @@ body {
 }
 @media screen and (min-width: 640px) {
   .decor img {
+    object-position: 50% 60%;
     height: 340px;
   }
 }
 @media screen and (min-width: 1024px) {
   .decor img {
     height: 420px;
-    object-position: 20% 50%;
   }
 }
 
@@ -460,35 +459,6 @@ body {
   background: #f6f6f6;
   border-radius: 36px 36px 0 0;
   z-index: 1;
-  /* ----- Alternative solution ----- *
-  &__fav {
-      cursor: pointer;
-      font-size: 1.4rem;
-      position: absolute;
-      top: 8px;
-      right: 25px;
-          &:hover span {
-              visibility: hidden;
-          }
-          &:hover, &:focus {
-              &::before {
-                  opacity: 1; // make the pseudo-element visible on hover
-              }
-          }
-          &::before {
-              position: absolute;
-              font-family: "Font Awesome 5 Free";
-              content: "\f004";
-              font-weight: 900;
-              background: linear-gradient(to bottom, $color-primary, $color-secondary);
-              background-clip: text;
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-              transition: opacity 100ms ease-in;
-              opacity: 0;
-          }
-  }
-  */
 }
 @media screen and (min-width: 640px) {
   .courses {
@@ -543,11 +513,10 @@ body {
 }
 .courses__fav:hover::before, .courses__fav:focus::before {
   position: absolute;
+  background: linear-gradient(to bottom, #9356dc, #ff79da);
   font-family: "Font Awesome 5 Free";
   content: "";
   font-weight: 900;
-  background: linear-gradient(to bottom, #9356dc, #ff79da);
-  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -573,10 +542,10 @@ body {
   }
 }
 .courses__dishes::after {
+  content: "";
   position: absolute;
   bottom: 0;
   left: 5px;
-  content: "";
   border-bottom: 3px solid #99e2d0;
   width: 40px;
 }
@@ -627,10 +596,12 @@ body {
   margin: 0;
 }
 .dish__slide {
-  text-align: center;
   position: absolute;
   top: 0;
   right: 0;
+  background-image: linear-gradient(0.25turn, transparent, #fff 2%, #fff);
+  border-radius: 0 15px 15px 0;
+  text-align: center;
   display: flex;
   flex-flow: row wrap;
   align-items: flex-end;
@@ -638,22 +609,34 @@ body {
 .dish__slide::before {
   content: "...";
   font-weight: 400;
-  width: 30px;
+  width: 10px;
   padding-bottom: 13px;
   opacity: 0;
+  transition: width 400ms ease-in-out, opacity 200ms ease-in-out;
+}
+@media screen and (min-width: 640px) {
+  .dish__slide::before {
+    content: "";
+  }
+}
+.dish:hover .dish__slide::before {
+  width: 30px;
+  opacity: 1;
 }
 .dish__price {
-  transition: width 640ms ease-in;
+  border-radius: 0 0 15px 0;
   font-size: 0.95rem;
   font-weight: 700;
-  width: 80px;
+  text-align: right;
   margin: 0;
-  background: #fff;
-  border-radius: 0 0 15px 0;
-  padding-bottom: 10px;
+  padding: 0 20px 13px 0;
+  transition: padding-right 100ms ease-out 420ms;
+}
+.dish:hover .dish__price {
+  padding-right: 25px;
 }
 .dish__check {
-  background-color: #99E2D0;
+  background-color: #99e2d0;
   border-radius: 0 15px 15px 0;
   height: 68px;
   overflow: hidden;
@@ -666,26 +649,14 @@ body {
 .dish__check span {
   color: #fff;
   font-size: 1.4rem;
-}
-.dish:hover .dish__slide {
-  background: linear-gradient(0.25turn, transparent, #fff 2%, #fff);
-  border-radius: 0 15px 15px 0;
-}
-.dish:hover .dish__slide::before {
-  opacity: 1;
-  transition: opacity 1000ms ease-in-out;
-}
-.dish:hover .dish__price {
-  width: 60px;
-  transition: width 200ms ease-in-out;
+  transition: transform 500ms;
 }
 .dish:hover .dish__check {
   width: 80px;
 }
 .dish:hover .dish__check span {
-  cursor: pointer;
   transform: rotate(1turn);
-  transition: transform 500ms;
+  cursor: pointer;
 }
 
 .order {
@@ -703,8 +674,8 @@ body {
 }
 
 .more {
-  color: #fff;
   background-color: #353535;
+  color: #fff;
   padding: 5px 20px 40px 20px;
 }
 @media screen and (min-width: 640px) {
