@@ -1,0 +1,22 @@
+.fa-heart {
+    width: 25px;
+        > path {
+            cursor: pointer;
+        fill: url('#filling');
+        stroke: black;
+        stroke-width: 20;
+        transition: all 250ms;
+            &:hover, &:focus {
+                stroke: $color-light-bkgd;
+                    & ~ defs stop:first-child {
+                        stop-color: $color-primary;
+                    }
+                    & ~ defs stop:last-child {
+                        stop-color: $color-secondary;
+                    }
+            }
+        }
+        & stop {
+            transition: all 250ms;
+        }
+}
